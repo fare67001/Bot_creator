@@ -1,0 +1,14 @@
+
+/* Production lite kit — safe for Telegram WebView */
+.u-flex{display:flex}.u-grid{display:grid}.u-hidden{display:none}
+.u-center{display:grid;place-items:center}
+.u-gap-8{gap:8px}.u-gap-12{gap:12px}.u-gap-16{gap:16px}
+.u-mt-8{margin-top:8px}.u-mt-12{margin-top:12px}.u-mb-8{margin-bottom:8px}
+.u-text-muted{color:var(--bf-muted)}
+.u-fw-700{font-weight:700}.u-fw-800{font-weight:800}
+.u-round{border-radius:var(--bf-radius)}
+.u-stroke{border:1px solid var(--bf-stroke)}
+.bf-focus-ring:focus-visible{outline:2px solid #22d3ee;outline-offset:2px}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

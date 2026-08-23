@@ -1,0 +1,30 @@
+
+:root {
+  --bf-bg0: #06060e;
+  --bf-bg1: #0c0c18;
+  --bf-card: rgba(18, 18, 36, 0.78);
+  --bf-stroke: rgba(255,255,255,0.09);
+  --bf-text: #f6f4ff;
+  --bf-muted: #9e99bc;
+  --bf-primary: #8b5cf6;
+  --bf-cyan: #22d3ee;
+  --bf-pink: #f472b6;
+  --bf-success: #34d399;
+  --bf-danger: #fb7185;
+  --bf-radius: 20px;
+  --bf-radius-sm: 14px;
+  --bf-shadow: 0 24px 70px rgba(0,0,0,.5);
+  --bf-font: "Vazirmatn", "Tahoma", system-ui, sans-serif;
+  --bf-blur: 20px;
+  --bf-grad: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 52%, #a78bfa 100%);
+  --bf-safe-b: env(safe-area-inset-bottom, 0px);
+}
+[data-theme="dawn"] {
+  --bf-bg0: #f7f4ff;
+  --bf-bg1: #efeaff;
+  --bf-card: rgba(255,255,255,0.82);
+  --bf-stroke: rgba(70,50,130,0.12);
+  --bf-text: #17122e;
+  --bf-muted: #6d668f;
+  --bf-shadow: 0 18px 50px rgba(80,60,140,.12);
+}
