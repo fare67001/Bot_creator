@@ -1,0 +1,80 @@
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body.bf-body {
+  font-family: var(--bf-font);
+  background: var(--bf-bg0);
+  color: var(--bf-text);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea { font: inherit; color: inherit; }
+.glass {
+  background: var(--bf-card);
+  border: 1px solid var(--bf-stroke);
+  backdrop-filter: blur(var(--bf-blur));
+  -webkit-backdrop-filter: blur(var(--bf-blur));
+  box-shadow: var(--bf-shadow);
+  border-radius: var(--bf-radius);
+}
+.bf-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.bf-orb { position: absolute; border-radius: 50%; filter: blur(48px); opacity: .32; }
+.bf-orb-a { width: 300px; height: 300px; background: #7c3aed; top: -80px; right: -50px; animation: float 13s ease-in-out infinite; }
+.bf-orb-b { width: 240px; height: 240px; background: #06b6d4; bottom: 8%; left: -60px; animation: float 15s ease-in-out infinite reverse; }
+.bf-orb-c { width: 180px; height: 180px; background: #ec4899; top: 42%; right: 18%; opacity: .18; animation: float 17s ease-in-out infinite; }
+.bf-orb-d { width: 140px; height: 140px; background: #a78bfa; bottom: 30%; right: -30px; opacity: .15; animation: float 11s ease-in-out infinite; }
+.bf-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at 50% 30%, black, transparent 72%);
+}
+.bf-noise {
+  position: absolute; inset: 0; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@keyframes float { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(20px) } }
+.bf-top, .bf-main, .bf-dock { position: relative; z-index: 1; }
+.bf-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 6px; gap: 10px; }
+.bf-brand { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.bf-logo {
+  width: 46px; height: 46px; border-radius: 16px; display: grid; place-items: center; flex: 0 0 auto;
+  background: var(--bf-grad); color: #0b0b12; font-size: 20px; box-shadow: 0 10px 34px rgba(139,92,246,.45);
+}
+.bf-title { font-weight: 800; letter-spacing: -.02em; }
+.bf-sub { color: var(--bf-muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 52vw; }
+.bf-top-actions { display: flex; gap: 8px; }
+.bf-main { padding: 8px 16px calc(108px + var(--bf-safe-b)); display: grid; gap: 14px; }
+.bf-dock {
+  position: fixed; bottom: calc(10px + var(--bf-safe-b)); left: 12px; right: 12px;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; padding: 8px; z-index: 5;
+}
+.bf-dock button {
+  border: 0; background: transparent; color: var(--bf-text); padding: 8px 4px; border-radius: 14px;
+  display: grid; gap: 2px; place-items: center; opacity: .88;
+}
+.bf-dock button span { font-size: 16px; }
+.bf-dock button small { font-size: 10px; color: var(--bf-muted); }
+.bf-dock button:active { background: rgba(139,92,246,.16); transform: scale(.98); }
+.bf-grad-text {
+  background: var(--bf-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.bf-muted { color: var(--bf-muted); }
+/* performance + less clutter */
+.bf-body { background: #121826 !important; }
+.bf-orb { opacity: 0.25 !important; filter: blur(40px) !important; }
+.bf-noise { opacity: 0.03 !important; }
+.bf-card { content-visibility: auto; contain: layout style; }
+.bf-main { padding-bottom: 88px; }
+.bf-dock button.active { color: #f0d060; }
+
+.bf-panel { display: none; }
+.bf-panel.active { display: block; }
+.bf-builder-actions { display: flex; gap: 10px; margin-top: 14px; }
+.bf-builder-actions .bf-btn { flex: 1; }
+.bf-steps { display: flex; gap: 6px; margin: 10px 0 14px; }
+.bf-step { flex: 1; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.12); }
+.bf-step.on { background: linear-gradient(90deg, #a78bfa, #22d3ee); }
+
