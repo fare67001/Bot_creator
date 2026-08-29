@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#121826" id="metaTheme" />
+  <title>Bot Factory Studio</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/studio.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <!-- god-kit.css (~1M lines) is NOT loaded in browser — freezes WebView; kept in package as design archive -->
+  
+</head>
+<body class="bf-body">
+  <div class="bf-bg" aria-hidden="true">
+    <div class="bf-orb bf-orb-a"></div>
+    <div class="bf-orb bf-orb-b"></div>
+    <div class="bf-orb bf-orb-c"></div>
+    <div class="bf-orb bf-orb-d"></div>
+    <div class="bf-grid"></div>
+    <div class="bf-noise"></div>
+  </div>
+
+  <header class="bf-top">
+    <div class="bf-brand">
+      <div class="bf-logo" aria-hidden="true"><span>⚡</span></div>
+      <div>
+        <div class="bf-title">Bot Factory Studio</div>
+        <div class="bf-sub">استودیوی ساخت ربات · تجربه گاد</div>
+        <div id="VERSION_BANNER" style="margin-top:6px;font-size:11px;font-weight:800;color:#f0d060">نسخه v7-FIXED</div>
+      </div>
+    </div>
+    <div class="bf-top-actions">
+      <button class="bf-chip" id="btnTheme" type="button" title="تغییر تم">تم</button>
+      <button class="bf-chip bf-chip-glow" id="btnBrand" type="button">برند</button>
+    </div>
+  </header>
+
+  <main class="bf-main" id="app">
+    <!-- HERO -->
+    <section class="bf-hero glass reveal">
+      <div class="bf-hero-badge">Telegram Mini App · Pro</div>
+      <h1>ربات بساز؛ <span class="bf-grad-text">با ظاهر لوکس</span></h1>
+      <p class="bf-lead">کاتالوگ قالب، ویزارد ساخت، پیش‌نمایش برند و تجربه موبایل‌محور — همه در یک استودیو.</p>
+      <div class="bf-hero-actions">
+        <button class="bf-btn bf-btn-primary" data-go="catalog">شروع از قالب‌ها</button>
+        <button class="bf-btn bf-btn-ghost" data-go="showcase">نمایش برند</button>
+      </div>
+      <div class="bf-hero-metrics">
+        <div><b>300+</b><span>قالب</span></div>
+        <div><b>RTL</b><span>فارسی</span></div>
+        <div><b>UX</b><span>مدرن</span></div>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <nav class="bf-tabs glass" id="tabs" role="tablist">
+      <button class="bf-tab active" data-tab="catalog" role="tab">قالب‌ها</button>
+      <button class="bf-tab" data-tab="builder" role="tab">سازنده</button>
+      <button class="bf-tab" data-tab="showcase" role="tab">برند</button>
+      <button class="bf-tab" data-tab="gallery" role="tab">گالری</button>
+      <button class="bf-tab" data-tab="faq" role="tab">FAQ</button>
+      <button class="bf-tab" data-tab="about" role="tab">درباره</button>
+    </nav>
+
+    <!-- CATALOG -->
+    <section class="bf-panel active" id="panel-catalog">
+      <div class="bf-search glass">
+        <span class="bf-search-ico">⌕</span>
+        <input id="q" type="search" placeholder="جستجوی قالب، موتور یا دسته…" autocomplete="off" />
+      </div>
+      <div class="bf-filters" id="filters"></div>
+      <div class="bf-section-head">
+        <h2>کاتالوگ تخصصی</h2>
+        <span id="countLabel" class="bf-muted">—</span>
+      </div>
+      <div class="bf-grid-cards" id="cards"></div>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="bf-panel" id="panel-builder">
+      <div class="glass bf-builder">
+        <div class="bf-builder-head">
+          <h2>ویزارد ساخت</h2>
+          <div id="stepPill" class="bf-pill">مرحله ۱ از ۵</div>
+        </div>
+        <div id="steps" class="bf-steps"></div>
+        <div id="builderBody"></div>
+        <div class="bf-builder-actions">
+          <button class="bf-btn bf-btn-ghost" id="btnPrev" type="button">قبلی</button>
+          <button class="bf-btn bf-btn-primary" id="btnNext" type="button">ادامه</button>
+        </div>
+        <p class="bf-muted" style="margin-top:10px;font-size:12px">مینی‌اپ را فقط از دکمه داخل ربات کارخانه باز کن تا ارسال به ربات کار کند.</p>
+      </div>
+    </section>
+
+    <!-- SHOWCASE / BRAND -->
+    <section class="bf-panel" id="panel-showcase">
+      <article class="glass bf-showcase">
+        <h2>هویت بصری استودیو</h2>
+        <p class="bf-lead">پالت بنفش–فیروزه‌ای، شیشه مات، حرکت نرم و تایپوگرافی Vazirmatn.</p>
+        <div class="bf-swatches">
+          <div class="sw s1"></div><div class="sw s2"></div><div class="sw s3"></div>
+          <div class="sw s4"></div><div class="sw s5"></div><div class="sw s6"></div>
+        </div>
+        <div class="bf-brand-grid">
+          <div class="bf-brand-tile"><b>Glass</b><span>عمق و شفافیت</span></div>
+          <div class="bf-brand-tile"><b>Neon</b><span>لهجه انرژی</span></div>
+          <div class="bf-brand-tile"><b>RTL</b><span>اولویت فارسی</span></div>
+          <div class="bf-brand-tile"><b>Motion</b><span>انتقال نرم</span></div>
+        </div>
+      </article>
+      <article class="glass bf-article">
+        <h3>اصول تجربه</h3>
+        <ul class="bf-ul">
+          <li>سلسله‌مراتب واضح عنوان و عمل اصلی</li>
+          <li>بازخورد فوری لمس و Haptic</li>
+          <li>کارت‌های قابل اسکن در یک نگاه</li>
+          <li>حداقل اصطکاک تا مرحله ساخت</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="bf-panel" id="panel-gallery">
+      <div class="bf-section-head"><h2>گالری حس بصری</h2></div>
+      <div class="bf-gallery" id="gallery"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bf-panel" id="panel-faq">
+      <div class="bf-section-head"><h2>سوالات پرتکرار</h2></div>
+      <div class="bf-faq" id="faq"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="bf-panel" id="panel-about">
+      <article class="glass bf-article">
+        <h2>درباره Bot Factory Studio</h2>
+        <p>این مینی‌اپ فقط برای خودِ ربات‌ساز است: کشف قالب، تنظیم برند، و آماده‌سازی جزئیات با ظاهر لوکس.</p>
+        <div class="bf-stats">
+          <div class="bf-stat"><b>Studio</b><span>Mini App</span></div>
+          <div class="bf-stat"><b>Pro</b><span>UI Kit</span></div>
+          <div class="bf-stat"><b>TG</b><span>WebApp</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="bf-dock glass">
+    <button data-go="catalog"><span>🏠</span><small>خانه</small></button>
+    <button data-go="builder"><span>🛠</span><small>سازنده</small></button>
+    <button data-go="showcase"><span>✨</span><small>برند</small></button>
+    <button data-go="faq"><span>❓</span><small>FAQ</small></button>
+  </footer>
+
+  <script src="js/data.js?v=v7fixed"></script>
+  <script src="js/ui.js?v=v7fixed"></script>
+  <script src="js/app.js?v=v7fixed"></script>
+</body>
+</html>
