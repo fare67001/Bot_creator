@@ -1,0 +1,16 @@
+اگر متن مینی‌اپ هنوز «ارسال خلاصه به ربات» است، فایل جدید روی سرور نیست.
+
+۱) زیپ BotFactory_MiniApp_SendFix را کامل باز کن
+۲) در گیت‌هاب این فایل‌ها را جایگزین کن (محتوا، نه فقط اسم):
+   miniapp/webapp/js/app.js
+   miniapp/webapp/index.html
+   miniapp/webapp_server.py
+   miniapp/webapp/css/base.css
+   factory/bot.py
+۳) Commit + Push
+۴) در Railway روی سرویس مینی‌اپ Redeploy
+۵) آدرس مینی‌اپ را در مرورگر باز کن و /health را ببین:
+   باید version: "v4-SEND-FIX" باشد
+۶) مینی‌اپ را از دکمه داخل ربات باز کن
+   بالای صفحه باید نوشته باشد: نسخه v4-SEND-FIX
+۷) اگر v4 ندیدی، هنوز فایل قدیمی است یا سرویس اشتباه را دیپلوی کرده‌ای
